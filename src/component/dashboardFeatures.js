@@ -74,7 +74,7 @@ export default function DashboardFeatures() {
 
 
             {Object.entries(userData).map(([taskId, taskData]) => {
-              if (taskData.uid && taskData.uid !== auth.currentUser.uid) {
+              if (taskData.assigned_user && taskData.assigned_user !== auth.currentUser.uid) {
                 return null;
               }
               switch (taskData.status) {
@@ -147,10 +147,11 @@ export default function DashboardFeatures() {
 
                 {Object.entries(userData).map(([taskId, taskData]) => {
 
-                  if (taskData.uid && taskData.uid !== auth.currentUser.uid) {
+                  if (taskData.assigned_user && taskData.assigned_user !== auth.currentUser.uid) {
                     return null;
                   }
                   const taskName = taskId;
+                  console.log(taskData.assigned_user)
                   return (
                     <div key={taskId}>
                       <TaskListItem
@@ -211,7 +212,7 @@ export default function DashboardFeatures() {
                 <li>               
                   {Object.entries(userData).map(([taskId, taskData]) => {
 
-                    if (taskData.uid && taskData.uid !== auth.currentUser.uid) {
+                    if (taskData.assigned_user && taskData.assigned_user !== auth.currentUser.uid) {
                       return null; 
                     }
                     const taskName = taskId;

@@ -121,7 +121,12 @@ export default function Manageteamtasklist() {
             console.error("An error occurred:", error);
         });
     }
+    
+    getTeamCode(idOfTeam)
 
+    if (!userTeam) {
+        return <div style={{ textAlign: "center", fontSize: "5rem" }}>Loading</div>;
+    }
 
 
     if (!teamTasks) {

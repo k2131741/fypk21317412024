@@ -102,7 +102,10 @@ export default function Teamviewpage() {
         e.preventDefault();
         const user = auth.currentUser;
         const teamId = uuidv4();
-        setFormData({ ...formData, joinCode: generateRandomJoinCode(6) });
+        const randomJoinCode = generateRandomJoinCode(6);
+        console.log(randomJoinCode)
+        setFormData({ ...formData, joinCode: randomJoinCode });
+
 
         set(ref(db, 'teams/' + teamId), formData)
             .then(() => {
@@ -128,7 +131,7 @@ export default function Teamviewpage() {
             const team = teamData[teamId];
             if (userJoinCode === team.joinCode) {
                 found = true;
-                teamIdMatched = teamId; 
+                teamIdMatched = teamId;
             }
         });
         if (!found) {
